@@ -1,8 +1,7 @@
+import { PrimarySearchAppBar } from "../components/header"
 function Home(){
     return(
-        <div>
-            <h1>Home</h1>
-        </div>
+        <PrimarySearchAppBar/>
     )
 }
 
