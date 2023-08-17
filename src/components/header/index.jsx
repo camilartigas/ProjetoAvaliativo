@@ -20,21 +20,24 @@ function Header(){
             route:"paginaextra",
             description:"Página Extra"
         },
+        {
+            route:"mapa",
+            description:"Mapa"
+        }
     ]
     return(
         <>
         <PrimarySearchAppBar />
         <HeaderStyled>
-        <nav>
-            {
-                pages.map(({route, description}) => {
+            <nav>
+                {pages.map(({route, description}) => {
                     return(
                         <Link key={route} to={route}>{description}</Link>
 
                     );
                 })
-            }
-        </nav>
+                }
+            </nav>
         </HeaderStyled>
         </>
         

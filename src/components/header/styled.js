@@ -7,14 +7,17 @@ import styled from 'styled-components';
       justify-content: space-around;
 
       nav {
-        color: #fff;
+        display: flex;
+        width: 70%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 200px;
+      }
+
+      a{
+        text-decoration: none;
+      }
 
       
     `
-    export const NavStyled = styled.nav`
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-`
+  
