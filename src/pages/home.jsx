@@ -1,7 +1,10 @@
-import { PrimarySearchAppBar } from "../components/header"
+import { Header } from "../components/header";
 function Home(){
     return(
-        <PrimarySearchAppBar/>
+        <>
+        <Header />
+        </>
+        
     )
 }
 
