@@ -1,4 +1,4 @@
-function PaginaExtra(){
+function Ofertas(){
     return(
         <p>Uma implementação de página com funcionalidade extra criada por você. Ex
 a. Página de cadastro de usuário para ser utilizada no login
@@ -11,4 +11,4 @@ verificar header e footer default para todas as pg.
     )
 }
 
-export { PaginaExtra };
+export { Ofertas };

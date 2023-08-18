@@ -17,8 +17,8 @@ function Header(){
             description:"Cadastro de Novas Farmácias"
         },
         {
-            route:"paginaextra",
-            description:"Página Extra"
+            route:"Ofertas",
+            description:"Ofertas"
         },
         {
             route:"mapa",
