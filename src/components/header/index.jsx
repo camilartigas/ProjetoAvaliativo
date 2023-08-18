@@ -17,7 +17,7 @@ function Header(){
             description:"Cadastro de Novas Farmácias"
         },
         {
-            route:"Ofertas",
+            route:"ofertas",
             description:"Ofertas"
         },
         {

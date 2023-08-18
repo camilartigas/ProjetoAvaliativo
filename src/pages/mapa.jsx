@@ -1,5 +1,10 @@
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
+
 function Mapa(){
     return(
+        <>
+        <Header />
         <p>criar um mapa local lojas
 
 Uma página de mapa, contendo um Mapa centralizado e com marcadores de todas as farmácias cadastradas no sistema.
@@ -13,6 +18,8 @@ que foram cadastradas, como Razão Social, CNPJ, Nome e etc.
     clicado direciona o usuário para a página de envio de mensagem do WhatsApp. Utilize https://wa.me/55DDNNNNNNNNN sendo DD os dois digitos do DDD e NNNNNNNNN os dígitos do número de celular.
     verificar header e footer default para todas as pg.
         </p>
+        <Footer />
+        </>
     )
 }
 

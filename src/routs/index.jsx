@@ -5,6 +5,8 @@ import { CadastroNovaFarmacia } from "../pages/cadastroNovaFarmacia";
 import { Ofertas } from "../pages/Ofertas";
 import { Mapa } from "../pages/mapa";
 import { Login } from "../pages/login/login";
+import { DetalharMedicamento } from "../pages/detalharMedicamento";
+import { ListaMedicamentos  } from "../pages/listaMedicamentos";
 
 function RoutesApp() {
   return (
@@ -16,6 +18,9 @@ function RoutesApp() {
         <Route path="ofertas" element={<Ofertas />} />
         <Route path="mapa" element={<Mapa />} />
         <Route path="login" element={<Login />} />
+        <Route path="detalharmedicamento" element={<DetalharMedicamento/>} />
+        <Route path="listamedicamentos" element={<ListaMedicamentos />} />
+        
       </Routes>
     </BrowserRouter>
   );

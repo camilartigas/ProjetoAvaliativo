@@ -1,5 +1,12 @@
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
+
 function CadastroMedicamentos(){
     return(
+        <>
+        <Header />
+
+        
         <p>Cadastro de um medicamento com todos os dados
 
 a. Nome do medicamento (obrigatório)
@@ -18,6 +25,9 @@ i. Salve os dados em localStorage para simular uma API.
 
 verificar header e footer default para todas as pg.
         </p>
+        <Footer />
+        </>
+        
     )
 }
 

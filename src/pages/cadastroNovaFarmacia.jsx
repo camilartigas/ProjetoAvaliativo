@@ -1,5 +1,10 @@
+import { Footer } from "../components/footer";
+import { Header } from "../components/header";
+
 function CadastroNovaFarmacia(){
     return(
+        <>
+        <Header />
         <p>Todos os dados de uma farmácia real
 
 a. Razão social (obrigatório)
@@ -26,6 +31,8 @@ cadastrada com sucesso. Dica: Utilize o método onSubmit com Try/Catch.
 k. Salve os dados em localStorage para simular uma API.
 verificar header e footer default para todas as pg.
         </p>
+        <Footer />
+        </>
     )
 }
 
