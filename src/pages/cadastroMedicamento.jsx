@@ -25,7 +25,9 @@ i. Salve os dados em localStorage para simular uma API.
 
 verificar header e footer default para todas as pg.
         </p>
+        
         <Footer />
+       
         </>
         
     )

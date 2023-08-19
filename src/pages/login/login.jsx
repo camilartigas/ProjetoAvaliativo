@@ -2,9 +2,48 @@ import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 import logop from "../../img/logop.png";
 import { HeadStyled, LoginStyled } from "./styled";
+import React, { useState } from "react";
 
+
+function validaSenha(password) {
+    // Verifica se a senha tem pelo menos 8 caracteres
+    if (password.length < 8) {
+        return false;
+    }
+
+    const temNumero = /[0-9]/.test(password);
+    const temLetra = /[a-zA-Z]/.test(password);
+
+    return temNumero && temLetra;
+}
 
 function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    
+   
+    
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const validaLogin = (e) => {
+        e.preventDefault();
+        
+        if (!validaSenha(password)) {
+            alert("A senha deve conter pelo menos 8 caracteres com números e letras.");
+            return;
+        }
+        
+        
+    
+    };
+
     return (
         <>
             <Header />
@@ -15,14 +54,28 @@ function Login() {
                 </HeadStyled>
 
 
-                <form>
+                <form onSubmit={validaLogin}>
                     <div>
-                        <label htmlFor="email">E-mail</label>
-                        <input type="email" name="email" id="email" placeholder="nome@email.com" />
+                        <input 
+                        required 
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="nome@email.com" 
+                        onChange={handleEmailChange}
+                        value={email}
+                        />
                     </div>
                     <div>
-                        <label htmlFor="senha">Senha</label>
-                        <input type="password" name="senha" id="senha" placeholder="********" />
+                        <input 
+                        required
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="********"
+                        onChange={handlePasswordChange}
+                        value={password}
+                        />
                     </div>
 
                     <a href="">Esqueceu sua senha?</a>
@@ -37,13 +90,9 @@ function Login() {
 
 
             <p>
-                LOGIN COM CAMPO DE EMAIL E SENHA
-                O evento onSubmit deverá validar se os campos foram preenchidos, sendo:
-                i. E-Mail (obrigatório)
-                ii. Senha (obrigatório)
+                
                 Ao validar os campos de input, o usuário é redirecionado para a página de Mapa.
-                i. Não é necessário guardar as informações, apenas valide se o campo de e-mail recebeu um e-mail verdadeiro, e se o campo de senha possui 8 ou mais caracteres com números e letras.
-                verificar header e footer default para todas as pg.
+               
             </p> 
         </>
 
