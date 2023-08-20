@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/home";
 import { CadastroMedicamentos } from "../pages/cadastroMedicamento";
-import { CadastroNovaFarmacia } from "../pages/cadastroNovaFarmacia/cadastroNovaFarmacia";
+import { CadastroNovaFarmacia } from "../pages/cadastroNovaFarmacia";
 import { Ofertas } from "../pages/Ofertas";
 import { Mapa } from "../pages/mapa";
 import { Login } from "../pages/login/login";
 import { DetalharMedicamento } from "../pages/detalharMedicamento";
 import { ListaMedicamentos } from "../pages/listaMedicamentos";
+
 
 function RoutesApp() {
   return (

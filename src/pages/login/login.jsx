@@ -3,6 +3,7 @@ import { Footer } from "../../components/footer";
 import logop from "../../img/logop.png";
 import { HeadStyled, LoginStyled } from "./styled";
 import React, { useState } from "react";
+// import { useHistory } from "react-router-dom";
 
 
 function validaSenha(password) {
@@ -20,6 +21,7 @@ function validaSenha(password) {
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // const history = useHistory();
     
    
     
@@ -40,7 +42,7 @@ function Login() {
             return;
         }
         
-        
+        // history.push("/mapa");
     
     };
 
