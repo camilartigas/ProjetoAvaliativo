@@ -1,95 +1,249 @@
-import { Footer } from "../../components/footer";
 import { Header } from "../../components/header";
-import { CadastroFarmaciaStyled } from "./styled";
-import * as React from 'react';
+import { Footer } from "../../components/footer";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { CadastroFarmaciaStyled } from "./styled";
+import React, { useState, useEffect } from 'react';
+
 
 function CadastroNovaFarmacia() {
+    const [feedbackMessage, setFeedbackMessage] = useState('');
+    const [cep, setCep] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        try {
+            const razaoSocial = event.target.razaoSocial.value;
+            const cnpj = event.target.cnpj.value;
+            const nomeFantasia = event.target.nomeFantasia.value;
+            const email = event.target.email.value;
+            const telefone = event.target.telefone.value;
+            const celular = event.target.celular.value;
+            const cep = event.target.cep.value;
+            const logradouro = event.target.logradouro.value;
+            const numero = event.target.numero.value;
+            const bairro = event.target.bairro.value;
+            const cidade = event.target.cidade.value;
+            const estado = event.target.estado.value;
+            const complemento = event.target.complemento.value;
+            const latitude = event.target.latitude.value;
+            const longitude = event.target.longitude.value;
+
+            const novaFarmacia = {
+                razaoSocial,
+                cnpj,
+                nomeFantasia,
+                email,
+                telefone,
+                celular,
+                cep,
+                logradouro,
+                numero,
+                bairro,
+                cidade,
+                estado,
+                complemento,
+                latitude,
+                longitude,
+            };
+
+            const existingNovaFarmacia = JSON.parse(localStorage.getItem('novaFarmacia')) || [];
+            existingNovaFarmacia.push(novaFarmacia);
+            localStorage.setItem('novaFarmaciaq', JSON.stringify(existingNovaFarmacia));
+
+
+            setFeedbackMessage('Farmácia cadastrado com sucesso.');
+        } catch (error) {
+            console.error(error);
+            setFeedbackMessage('Ocorreu um erro ao cadastrar a farmácia.');
+        }
+    };
+
+    const [addressData, setAddressData] = useState({
+        logradouro: '',
+        bairro: '',
+        cidade: '',
+        estado: '',
+    });
+
+    const fetchAddressData = async (cep) => {
+        try {
+            const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            const data = await response.json();
+    
+            if (!data.erro) {
+                setAddressData({
+                    logradouro: data.logradouro,
+                    bairro: data.bairro,
+                    cidade: data.localidade,
+                    estado: data.uf,
+                });
+            }
+        } catch (error) {
+            console.error(error);
+    }
+};
+
+useEffect(() => {
+    if (addressData.logradouro === '' && cep !== '') {
+        fetchAddressData(cep);
+    }
+}, [cep, addressData.logradouro]);
+
+
+
     return (
         <>
             <Header />
-            <CadastroFarmaciaStyled >
-                <h1>Cadastro de novas farmácias</h1>
-                <div>
-                <Box component="form" sx={{ '& .MuiTextField-root': { m: 1, width: '40ch' } }} noValidate autoComplete="off">
+            <CadastroFarmaciaStyled>
+                <h1>Cadastro Nova Farmácia</h1>
+                <form onSubmit={handleSubmit}>
                     <div>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Razão Social"
-                            type="text"
-                        />
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="CNPJ"
-                            type="text"
-                        />
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Nome Fantasia"
-                            type="text"
-                        />
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="E-mail"
-                            type="text"
-                        />
-                        <TextField
-                            id="outlined-number"
-                            label="Telefone"
-                            type="number"
-                            InputLabelProps={{
-                                shrink: true,
-                            }} 
+                        <Box sx={{ '& .MuiTextField-root': { m: 1, width: '54ch' } }} noValidate autoComplete="off">
+                            <div>
+                                <TextField
+                                    required
+                                    id="outlined-required"
+                                    label="Razão Social"
+                                    type="text"
+                                    name="razaoSocial"
+                                   
+                                />
+                                <TextField
+                                    required
+                                    id="outlined-number"
+                                    label="CNPJ"
+                                    type="number"
+                                    name="cnpj"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                />
+                                <TextField
+                                    required
+                                    id="outlined-required"
+                                    label="Nome Fantasia"
+                                    type="text"
+                                    name="nomeFantasia"
+                                    />
+                                    <TextField
+                                    required
+                                    id="outlined-required"
+                                    label="E-mail"
+                                    type="email"
+                                    name="email"
+                                    />
+                                    <TextField
+                                    id="outlined-number"
+                                    label="Telefone"
+                                    type="number"
+                                    name="telefone"
+                                />
+                                <TextField
+                                required
+                                    id="outlined-number"
+                                    label="Celular"
+                                    type="number"
+                                    name="celular"
+                                />
+                            </div>
+                        </Box>
+
+                        <Box sx={{ '& .MuiTextField-root': { m: 1, width: '26ch' } }} noValidate autoComplete="off">
+                            <div>
+                                <h2>Endereço</h2>
+                                <TextField
+                                    required
+                                    id="outlined-number"
+                                    label="CEP"
+                                    type="number"
+                                    name="cep"
+                                    onChange={(event) => setCep(event.target.value)}
+                                />
+                                <TextField
+                                required
+                                id="outlined-multiline-static"
+                                label="Logradouro"
+                                type="text"
+                                name="logradouro"
+                                value={addressData.logradouro}
+    onChange={(event) => setAddressData({ ...addressData, logradouro: event.target.value })}
+
                             />
-                             <TextField
-                             required
-                            id="outlined-number"
-                            label="Celular"
-                            type="number"
-                            InputLabelProps={{
-                                shrink: true,
-                            }} 
+                                <TextField
+                                    required
+                                    id="outlined-helperText"
+                                    label="Número"
+                                    type="number"
+                                    name="numero"
+                                />
+                                <TextField
+                                required
+                                id="outlined-multiline-static"
+                                label="Bairro"
+                                type="text"
+                                name="bairro"
+                                value={addressData.bairro}
+    onChange={(event) => setAddressData({ ...addressData, bairro: event.target.value })}
+
                             />
+                            <TextField
+                                required
+                                id="outlined-multiline-static"
+                                label="Cidade"
+                                type="text"
+                                name="cidade"
+                                value={addressData.cidade}
+    onChange={(event) => setAddressData({ ...addressData, cidade: event.target.value })}
+
+                            />
+                            <TextField
+                                required
+                                id="outlined-multiline-static"
+                                label="Estado"
+                                type="text"
+                                name="estado"
+                                value={addressData.estado}
+    onChange={(event) => setAddressData({ ...addressData, estado: event.target.value })}
+
+                            />
+                            <TextField
+                                id="outlined-multiline-static"
+                                label="Complemento"
+                                type="text"
+                                name="complemento"
+                            />
+                            <h3>Geolocalização</h3>
+                            <TextField
+                                    required
+                                    id="outlined-helperText"
+                                    label="Latitude"
+                                    type="number"
+                                    name="latitude"
+                                />
+                                <TextField
+                                    required
+                                    id="outlined-helperText"
+                                    label="Longitude"
+                                    type="number"
+                                    name="longitude"
+                                />
+                               
+                            </div>
+                        </Box>
                     </div>
-                    <div>
-                        <h3>Endereço</h3>
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="CEP"
-                            type="text"
-                        />
-                    </div>
-                </Box>
-                </div>
+
+                    <Button type="submit" variant="contained" size="large">
+                        Salvar
+                    </Button>
+                </form>
+                {feedbackMessage && <p>{feedbackMessage}</p>}
             </CadastroFarmaciaStyled>
-            <p>
-                
-                g. Endereço
-                CEP (obrigatório)
-                Logradouro/Endereço (obrigatório)
-                Número (obrigatório)
-                Bairro (obrigatório)
-                Cidade (obrigatório)
-                Estado (obrigatório)
-                Complemento (opcional)
-                Geolocalização
-                Latitude (obrigatório)
-                Longitude (obrigatório)
-                Os dados de endereço devem ser pré-preenchidos através da consulta do CEP pela API ViaCEP do IBGE Brasil. Preencher com os campos disponíveis da API (logradouro, bairro, cidade e etc) e solicitar ao usuário os campos extras (número, complemento e etc)
-                i. Os campos obrigatórios e opcionais devem ser validados no método onSubmit.
-                j. Ao cadastrar uma nova farmácia, mostrar uma mensagem de feedback de empresa
-                cadastrada com sucesso. Dica: Utilize o método onSubmit com Try/Catch.
-                k. Salve os dados em localStorage para simular uma API.
-                verificar header e footer default para todas as pg.
-            </p>
             <Footer />
         </>
+
     )
 }
 
