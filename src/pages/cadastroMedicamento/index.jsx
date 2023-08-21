@@ -77,6 +77,15 @@ function CadastroMedicamentos() {
             existingMedications.push(medication);
             localStorage.setItem('medications', JSON.stringify(existingMedications));
 
+            // Limpa os campos após o cadastro
+            event.target.nomeMedicamento.value = '';
+            event.target.nomeLaboratorio.value = '';
+            event.target.dosagem.value = '';
+            event.target.medida.value = 'mg'; // Define um valor padrão para a medida
+            event.target.preco.value = 'R$ ';
+            event.target.tipo.value = 'medicamento comum';
+            event.target.descricao.value = '';
+
 
             setFeedbackMessage('Medicamento cadastrado com sucesso.');
         } catch (error) {
