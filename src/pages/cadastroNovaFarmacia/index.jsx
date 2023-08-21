@@ -51,7 +51,10 @@ function CadastroNovaFarmacia() {
 
             const existingNovaFarmacia = JSON.parse(localStorage.getItem('novaFarmacia')) || [];
             existingNovaFarmacia.push(novaFarmacia);
-            localStorage.setItem('novaFarmaciaq', JSON.stringify(existingNovaFarmacia));
+            localStorage.setItem('novaFarmacia', JSON.stringify(existingNovaFarmacia));
+
+             // Limpa os campos após o cadastro
+            event.target.reset();
 
 
             setFeedbackMessage('Farmácia cadastrado com sucesso.');
@@ -220,14 +223,14 @@ useEffect(() => {
                                     required
                                     id="outlined-helperText"
                                     label="Latitude"
-                                    type="number"
+                                    type="text"
                                     name="latitude"
                                 />
                                 <TextField
                                     required
                                     id="outlined-helperText"
                                     label="Longitude"
-                                    type="number"
+                                    type="text"
                                     name="longitude"
                                 />
                                
