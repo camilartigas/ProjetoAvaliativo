@@ -1,4 +1,6 @@
+import 'leaflet/dist/leaflet.css';
 import { RoutesApp } from "./routs";
+
 
 
 function App() {
@@ -6,6 +8,7 @@ function App() {
   return (
     <>
       < RoutesApp />
+      
     </>
   )
 }
