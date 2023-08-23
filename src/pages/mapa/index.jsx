@@ -19,19 +19,19 @@ function Mapa(){
         <Marker key={index} position={[farmacia.latitude, farmacia.longitude]}>
           <Popup>
             <div>
-            <h3>{farmacia.razaoSocial}</h3>
+            <h2>{farmacia.razaoSocial}</h2>
               <p>CNPJ: {farmacia.cnpj}</p>
               <p>Nome Fantasia: {farmacia.nomeFantasia}</p>
               <p>E-mail: {farmacia.email}</p>
-              <p>Telefone: {farmacia.telefone}</p>
-              <h5>Endereço</h5>
+              {farmacia.telefone && <p>Telefone: {farmacia.telefone}</p>}
+              <h3>Endereço:</h3>
                 <p>CEP: {farmacia.cep}</p>
                 <p>Logradouro: {farmacia.logradouro}</p>
                 <p>Número: {farmacia.numero}</p>
                 <p>Bairro: {farmacia.bairro}</p>
                 <p>Cidade: {farmacia.cidade}</p>
                 <p>Estado: {farmacia.estado}</p>
-                <p>Complemento: {farmacia.complemento}</p>
+                {farmacia.complemento && <p>Complemento: {farmacia.complemento}</p>}
               {farmacia.celular && (
                 <p>
                   Celular: <a href={`https://wa.me/55${farmacia.celular}`}>{farmacia.celular}</a>
