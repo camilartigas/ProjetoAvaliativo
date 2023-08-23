@@ -1,6 +1,8 @@
+import { Header } from '../../components/header';
 import React, { useState, useEffect } from 'react';
 import "./style.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Footer } from '../../components/footer';
 
 function Mapa(){
     const [farmacias, setFarmacias] = useState([]);
@@ -11,7 +13,8 @@ function Mapa(){
       }, []);
 
     return(
-        
+        <>
+        <Header />
         <MapContainer center={[-25.448431245504, -49.25946724454275]} zoom={13}scrollWheelZoom={false}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
@@ -42,7 +45,8 @@ function Mapa(){
         </Marker>
       ))}
         </MapContainer>
-        
+        <Footer />
+        </>
     )
 }
 
