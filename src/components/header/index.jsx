@@ -5,7 +5,7 @@ import { HeaderStyled } from "./styled"
 function Header(){
     const pages = [
         {
-            route:"/",
+            route:"",
             description:"Home"
         },
         {
@@ -31,17 +31,16 @@ function Header(){
     ]
     return(
         <>
-        <PrimarySearchAppBar />
+        <PrimarySearchAppBar /> 
         <HeaderStyled>
-            <nav>
-                {pages.map(({route, description}) => {
-                    return(
-                        <Link key={route} to={route}>{description}</Link>
-
-                    );
-                })
-                }
-            </nav>
+        <nav>
+        {pages.map(({ route, description }) => {
+          return (
+            <Link key={route} to={`/${route}`}>{description}</Link>
+            // Adicione uma barra inicial na frente de 'route'
+          );
+        })}
+      </nav>
         </HeaderStyled>
         </>
         

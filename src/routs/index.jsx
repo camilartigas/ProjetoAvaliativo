@@ -21,7 +21,6 @@ function RoutesApp() {
         <Route path="/login" element={<Login />} />
         <Route path="/detalharmedicamento" element={<DetalharMedicamento />} />
         <Route path="/listamedicamentos" element={<ListaMedicamentos />} />
-
       </Routes>
     </BrowserRouter>
   );
