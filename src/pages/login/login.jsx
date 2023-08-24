@@ -3,7 +3,8 @@ import { Footer } from "../../components/footer";
 import logop from "../../img/logop.png";
 import { HeadStyled, LoginStyled } from "./styled";
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 
 function validaSenha(password) {
@@ -21,10 +22,7 @@ function validaSenha(password) {
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const history = useHistory();
-    
-   
-    
+    const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -42,8 +40,7 @@ function Login() {
             return;
         }
         
-        // history.push("/mapa");
-    
+        navigate("/mapa");
     };
 
     return (
@@ -91,11 +88,7 @@ function Login() {
 
 
 
-            <p>
-                
-                Ao validar os campos de input, o usuário é redirecionado para a página de Mapa.
-               
-            </p> 
+        
         </>
 
     )

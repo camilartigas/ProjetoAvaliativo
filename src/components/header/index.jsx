@@ -13,6 +13,10 @@ function Header(){
             description:"Cadastro de Medicamentos"
         },
         {
+            route:"listamedicamentos",
+            description:"Lista de Medicamentos"
+        },
+        {
             route:"cadastronovafarmacia",
             description:"Cadastro de Novas Farmácias"
         },
