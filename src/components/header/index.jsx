@@ -14,26 +14,32 @@ import AdbIcon from '@mui/icons-material/Adb';
 import cataventos from '../../img/cataventos.png';
 import './style.css';
 
-
-const pages = ['Login', 'Cadastro de Medicamentos', 'Lista de Medicamentos', 'Cadastro de Novas Farmácias', 'Ofertas', 'Mapa'];
+const pages = ['Login', 'Lista de Medicamentos', 'Ofertas', 'Mapa'];
 
 function Header() {
-  const [anchorNav, setAnchorNav] = useState(null);
+  const [navMenuAnchor, setNavMenuAnchor] = useState(null);
+  const [userMenuAnchor, setUserMenuAnchor] = useState(null);
 
   const handleOpenNavMenu = (event) => {
-    setAnchorNav(event.currentTarget);
+    setNavMenuAnchor(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorNav(null);
+    setNavMenuAnchor(null);
+  };
+
+  const handleOpenUserMenu = (event) => {
+    setUserMenuAnchor(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setUserMenuAnchor(null);
   };
 
   return (
-
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: '#f1e7c5' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-
           <Typography
             variant="h6"
             noWrap
@@ -45,9 +51,9 @@ function Header() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: '#333',
               textDecoration: 'none',
-              alignItems: 'center', // Align the image with text
+              alignItems: 'center',
             }}
           >
             <img
@@ -70,20 +76,20 @@ function Header() {
             </IconButton>
             <Menu
               id="menu-appbar"
-              anchor={anchorNav}
+              anchorEl={navMenuAnchor}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left',
+                horizontal: 'left'
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'left'
               }}
-              open={Boolean(anchorNav)}
+              open={Boolean(navMenuAnchor)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none' }
               }}
             >
               {pages.map((page) => (
@@ -101,16 +107,53 @@ function Header() {
                 component={Link}
                 to={`/${page.toLowerCase().replace(/\s/g, '')}`}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: '#f5938b', display: 'block', textTransform: 'none' }}
               >
                 {page}
               </Button>
             ))}
+            
+            <Button
+              aria-label="cadastros"
+              aria-controls="cadastros-menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenUserMenu}
+              color="inherit"
+              sx={{
+                my: 2,
+                color: '#f5938b',
+                display: 'block',
+                textTransform: 'none'
+              }}
+            >
+              Cadastros
+            </Button>
+            <Menu
+              id="cadastros-menu-appbar"
+              anchorEl={userMenuAnchor}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right'
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right'
+              }}
+              open={Boolean(userMenuAnchor)}
+              onClose={handleCloseUserMenu}
+            >
+              <MenuItem onClick={handleCloseUserMenu} component={Link} to="/cadastro-medicamentos">
+                Cadastro de Medicamentos
+              </MenuItem>
+              <MenuItem onClick={handleCloseUserMenu} component={Link} to="/cadastro-farmacias">
+                Cadastro de Novas Farmácias
+              </MenuItem>
+            </Menu>
+
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
-
   );
 }
 
