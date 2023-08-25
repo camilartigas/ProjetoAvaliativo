@@ -1,21 +1,38 @@
-import { Footer } from "../components/footer";
-import { Header } from "../components/header";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-function DetalharMedicamento(){
-    return(
-        <>
-        <Header />
-        <p>
-        Uma página de detalhar os medicamentos que deverá aparecer quando um
-        medicamento é clicado na página de listagem.
-a. Você pode criar uma página de detalhes, ou simplesmente um modal. 
-b. Todas as informações cadastradas devem ser exibidas para o usuário.
-    Na página ou modal poderá existir alguma imagem que represente uma caixa de medicamento, já que o Ministério da Saúde Brasileira proíbe a divulgação da foto do medicamento.
-    verificar header e footer default para todas as pg.
-</p>
-<Footer />
-</>
-    )
+function DetalharMedicamento() {
+  const { id } = useParams();
+  const [medication, setMedication] = useState(null);
+
+  useEffect(() => {
+    const medications = JSON.parse(localStorage.getItem('medications')) || [];
+    const medicamentoDesejado = medications.find((med) => med.id === id);
+    
+    if (medicamentoDesejado) {
+      setMedication(medicamentoDesejado);
+    }
+  }, [id]);
+
+  if (!medication) {
+    return (
+      <div>
+        <h1>Medicamento não encontrado.</h1>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h1>Detalhes do Medicamento</h1>
+      <p>Nome: {medication.nomeMedicamento}</p>
+      <p>Laboratório: {medication.nomeLaboratorio}</p>
+      <p>Dosagem: {medication.dosagem} {medication.medida}</p>
+      <p>Preço: {medication.preco}</p>
+      <p>Tipo: {medication.tipo}</p>
+      <p>Descrição: {medication.descricao}</p>
+    </div>
+  );
 }
 
-export { DetalharMedicamento };
+export { DetalharMedicamento} 

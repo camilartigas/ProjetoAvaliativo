@@ -19,8 +19,8 @@ function RoutesApp() {
         <Route path="/ofertas" element={<Ofertas />} />
         <Route path="/mapa" element={<Mapa />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/detalharmedicamento" element={<DetalharMedicamento />} />
         <Route path="/listamedicamentos" element={<ListaMedicamentos />} />
+        <Route path="/detalharmedicamento/:id" element={<DetalharMedicamento />} />
       </Routes>
     </BrowserRouter>
   );
