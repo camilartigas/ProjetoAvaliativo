@@ -1,0 +1,14 @@
+
+img.header-image {
+    display: none; 
+    width: 50px;
+    height: auto;
+    margin-right: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    img.header-image {
+      display: flex;
+    }
+  }
+  
