@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Header } from '../components/header';
+import { Footer } from '../components/footer';
 
 function DetalharMedicamento() {
   const { id } = useParams();
@@ -24,6 +26,7 @@ function DetalharMedicamento() {
 
   return (
     <div>
+      <Header />
       <h1>Detalhes do Medicamento</h1>
       <p>Nome: {medication.nomeMedicamento}</p>
       <p>Laboratório: {medication.nomeLaboratorio}</p>
@@ -31,6 +34,7 @@ function DetalharMedicamento() {
       <p>Preço: {medication.preco}</p>
       <p>Tipo: {medication.tipo}</p>
       <p>Descrição: {medication.descricao}</p>
+      <Footer />
     </div>
   );
 }
