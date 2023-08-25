@@ -1,4 +1,3 @@
-
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -34,8 +33,12 @@ function MedicamentoCard({ medication }) {
         <Typography variant="body1">
           Laboratório: {medication.nomeLaboratorio}
         </Typography>
-        <Typography variant="body1">Dosagem: {medication.dosagem}</Typography>
-        {/* Outras informações do medicamento */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', padding: '0px' }}>
+         <Typography variant="body1">Dosagem: {medication.dosagem}</Typography> 
+         <Typography variant="body1">{medication.medida}</Typography>
+        </div>
+        
+        <Typography variant="body1">Tipo: {medication.tipo}</Typography>
       </CardContent>
       
     </StyledCard>
