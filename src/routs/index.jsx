@@ -14,12 +14,12 @@ function RoutesApp() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cadastromedicamento" element={<CadastroMedicamentos />} />
-        <Route path="/cadastronovafarmacia" element={<CadastroNovaFarmacia />} />
+        <Route path="/cadastrodemedicamentos" element={<CadastroMedicamentos />} />
+        <Route path="/cadastrodenovasfarmácias" element={<CadastroNovaFarmacia />} />
         <Route path="/ofertas" element={<Ofertas />} />
         <Route path="/mapa" element={<Mapa />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/listamedicamentos" element={<ListaMedicamentos />} />
+        <Route path="/listademedicamentos" element={<ListaMedicamentos />} />
         <Route path="/detalharmedicamento/:id" element={<DetalharMedicamento />} />
       </Routes>
     </BrowserRouter>
