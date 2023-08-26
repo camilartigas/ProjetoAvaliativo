@@ -19,6 +19,7 @@ const pages = ['Login', 'Lista de Medicamentos', 'Ofertas', 'Mapa'];
 function Header() {
   const [navMenuAnchor, setNavMenuAnchor] = useState(null);
   const [userMenuAnchor, setUserMenuAnchor] = useState(null);
+  const [cadastrosOpen, setCadastrosOpen] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setNavMenuAnchor(event.currentTarget);
@@ -142,10 +143,16 @@ function Header() {
               open={Boolean(userMenuAnchor)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={handleCloseUserMenu} component={Link} to="/cadastro-medicamentos">
+              <MenuItem onClick={handleCloseUserMenu} component={Link} to="/cadastrodemedicamentos"
+              sx={{
+                color: '#f5938b'
+              }}>
                 Cadastro de Medicamentos
               </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu} component={Link} to="/cadastro-farmacias">
+              <MenuItem onClick={handleCloseUserMenu} component={Link} to="/cadastrodenovasfarmácias"
+              sx={{
+                color: '#f5938b'
+              }}>
                 Cadastro de Novas Farmácias
               </MenuItem>
             </Menu>
