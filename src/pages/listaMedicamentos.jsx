@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Header } from '../components/header';
-import { Footer } from '../components/footer';
 import { MedicamentoCard } from '../components/medicamentoCard'; 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -58,7 +57,6 @@ function ListaMedicamentos() {
             ))}
         </div>
       </div>
-      <Footer />
     </>
   );
 }

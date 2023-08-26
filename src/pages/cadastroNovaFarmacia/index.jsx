@@ -1,5 +1,4 @@
 import { Header } from "../../components/header";
-import { Footer } from "../../components/footer";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -244,7 +243,7 @@ useEffect(() => {
                 </form>
                 {feedbackMessage && <p>{feedbackMessage}</p>}
             </CadastroFarmaciaStyled>
-            <Footer />
+            
         </>
 
     )

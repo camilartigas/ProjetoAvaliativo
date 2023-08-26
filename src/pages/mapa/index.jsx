@@ -2,7 +2,6 @@ import { Header } from '../../components/header';
 import React, { useState, useEffect } from 'react';
 import "./style.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Footer } from '../../components/footer';
 
 function Mapa(){
     const [farmacias, setFarmacias] = useState([]);
@@ -45,7 +44,7 @@ function Mapa(){
         </Marker>
       ))}
         </MapContainer>
-        <Footer />
+       
         </>
     )
 }

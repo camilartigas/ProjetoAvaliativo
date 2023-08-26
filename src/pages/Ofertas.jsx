@@ -1,4 +1,3 @@
-import { Footer } from "../components/footer";
 import { Header } from "../components/header";
 
 function Ofertas(){
@@ -13,7 +12,7 @@ d. Entre outras funcionalidades
 
 verificar header e footer default para todas as pg.
         </p>
-        <Footer />
+      
         </>
     )
 }

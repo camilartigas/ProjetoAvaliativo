@@ -1,5 +1,4 @@
 import { Header } from "../../components/header";
-import { Footer } from "../../components/footer";
 import logop from "../../img/logop.png";
 import { HeadStyled, LoginStyled } from "./styled";
 import React, { useState } from "react";
@@ -83,7 +82,7 @@ function Login() {
 
                 </form>
             </LoginStyled>
-            <Footer />
+           
 
 
 
