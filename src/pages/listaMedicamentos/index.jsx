@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { BorderColor } from '@mui/icons-material';
 
+
 function ListaMedicamentos() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredMedications, setFilteredMedications] = useState([]);

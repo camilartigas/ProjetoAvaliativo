@@ -4,7 +4,7 @@ import { CadastroMedicamentos } from "../pages/cadastroMedicamento";
 import { CadastroNovaFarmacia } from "../pages/cadastroNovaFarmacia";
 import { Ofertas } from "../pages/Ofertas";
 import { Mapa } from "../pages/mapa";
-import { Login } from "../pages/login/login";
+import { Login } from "../pages/login";
 import { DetalharMedicamento } from "../pages/detalharMedicamento";
 import { ListaMedicamentos } from "../pages/listaMedicamentos";
 
