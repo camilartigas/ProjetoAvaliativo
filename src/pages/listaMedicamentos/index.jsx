@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Header } from '../../components/header';
-import { MedicamentoCard } from '../../components/medicamentoCard'; 
+import { MedicamentoCard } from '../../components/medicamentoCard';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { BorderColor } from '@mui/icons-material';
+import logop from "../../img/logop.png";
 
 
 function ListaMedicamentos() {
@@ -15,7 +15,7 @@ function ListaMedicamentos() {
     const newSearchTerm = event.target.value;
     setSearchTerm(newSearchTerm);
 
-  
+
     const filtered = existingMedications.filter(
       (medication) =>
         medication.nomeMedicamento.toLowerCase().includes(newSearchTerm.toLowerCase()) ||
@@ -30,6 +30,14 @@ function ListaMedicamentos() {
     <>
       <Header />
       <div>
+        <Box sx={{ p: 3, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ maxWidth: '10%' }}>
+            <img src={logop} alt="logo DEVinPharmacy" style={{ width: '100%' }} />
+          </div>
+          <div style={{ marginTop: '1px', fontSize: '20px', fontFamily: 'inter', color: '#00153c' }}>
+            <span>Lista de Medicamentos</span>
+          </div>
+          </Box>
         <Box sx={{ p: 3 }}>
           <TextField
             label="Buscar medicamento"
@@ -48,32 +56,32 @@ function ListaMedicamentos() {
               },
               '&:hover .MuiOutlinedInput-notchedOutline': {
                 borderColor: '#046d8b',
-              } 
+              }
             }}
           />
         </Box>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '16px'}}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '10px' }}>
           {searchTerm.length > 0 && filteredMedications.length === 0 && (
             <Typography variant="body1">Nenhum medicamento encontrado.</Typography>
           )}
-          {searchTerm.length === 0 && existingMedications.length === 0 && (
+           {searchTerm.length === 0 && existingMedications.length === 0 && (
             <Typography variant="body1">Nenhum medicamento cadastrado.</Typography>
           )}
           {searchTerm.length === 0 &&
             existingMedications.length > 0 &&
             existingMedications.map((medication) => (
-              <MedicamentoCard key={medication.nomeMedicamento} medication={medication} 
+              <MedicamentoCard key={medication.nomeMedicamento} medication={medication}
               />
             ))}
           {searchTerm.length > 0 &&
             filteredMedications.length > 0 &&
             filteredMedications.map((medication) => (
               <MedicamentoCard key={medication.nomeMedicamento} medication={medication} />
-            ))}
+              ))}
+          </div>
         </div>
-      </div>
-    </>
-  );
-}
-
-export { ListaMedicamentos };
+      </>
+    );
+  }
+  
+  export { ListaMedicamentos };
