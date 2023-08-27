@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import logop from "../../img/logop.png";
+import { Container, StyledImage, Title } from './styled';
 
 
 function ListaMedicamentos() {
@@ -30,14 +31,10 @@ function ListaMedicamentos() {
     <>
       <Header />
       <div>
-        <Box sx={{ p: 3, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ maxWidth: '10%' }}>
-            <img src={logop} alt="logo DEVinPharmacy" style={{ width: '100%' }} />
-          </div>
-          <div style={{ marginTop: '1px', fontSize: '20px', fontFamily: 'inter', color: '#00153c' }}>
-            <span>Lista de Medicamentos</span>
-          </div>
-          </Box>
+      <Container>
+        <StyledImage src={logop} alt="logo DEVinPharmacy" />
+        <Title variant="h5">Lista de medicamentos</Title>
+      </Container>
         <Box sx={{ p: 3 }}>
           <TextField
             label="Buscar medicamento"

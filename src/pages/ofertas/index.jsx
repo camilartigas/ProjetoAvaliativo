@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Header } from '../components/header';
+import { Header } from '../../components/header';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import logop from "../img/logop.png";
+import logop from "../../img/logop.png";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Box from '@mui/material/Box';
-import { Container, StyledImage, Title } from './styled'; // Import the styled components
+import { Container, StyledImage, Title } from './styled'
 
 function Ofertas() {
   const [medications, setMedications] = useState([]);

@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/home";
 import { CadastroMedicamentos } from "../pages/cadastroMedicamento";
 import { CadastroNovaFarmacia } from "../pages/cadastroNovaFarmacia";
-import { Ofertas } from "../pages/Ofertas";
+import { Ofertas } from "../pages/ofertas";
 import { Mapa } from "../pages/mapa";
 import { Login } from "../pages/login";
 import { DetalharMedicamento } from "../pages/detalharMedicamento";
