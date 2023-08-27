@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Header } from '../components/header';
-import { MedicamentoCard } from '../components/medicamentoCard'; 
+import { Header } from '../../components/header';
+import { MedicamentoCard } from '../../components/medicamentoCard'; 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import { BorderColor } from '@mui/icons-material';
 
 function ListaMedicamentos() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -35,10 +36,22 @@ function ListaMedicamentos() {
             fullWidth
             value={searchTerm}
             onChange={handleSearchChange}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderColor: '#00153c',
+                borderRadius: '15px',
+                borderWidth: '2px',
+              },
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#00153c',
+              },
+              '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#046d8b',
+              } 
+            }}
           />
         </Box>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '16px' }}>
-          {/* Renderizar os cards dos medicamentos */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '16px'}}>
           {searchTerm.length > 0 && filteredMedications.length === 0 && (
             <Typography variant="body1">Nenhum medicamento encontrado.</Typography>
           )}
@@ -48,7 +61,8 @@ function ListaMedicamentos() {
           {searchTerm.length === 0 &&
             existingMedications.length > 0 &&
             existingMedications.map((medication) => (
-              <MedicamentoCard key={medication.nomeMedicamento} medication={medication} />
+              <MedicamentoCard key={medication.nomeMedicamento} medication={medication} 
+              />
             ))}
           {searchTerm.length > 0 &&
             filteredMedications.length > 0 &&

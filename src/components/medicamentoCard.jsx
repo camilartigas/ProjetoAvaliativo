@@ -5,14 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
 
 const StyledCard = styled(Card)`
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid #00153c;
+  border-radius: 15px;
   transition: transform 0.2s;
   cursor: pointer;
+  padding: '16px',
 
   &:hover {
     transform: translateY(-4px);
+    borderColor: '#046d8b',
   }
+         
 `;
 
 
