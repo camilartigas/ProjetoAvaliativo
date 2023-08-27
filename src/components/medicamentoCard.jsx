@@ -40,7 +40,7 @@ function MedicamentoCard({ medication }) {
          <Typography variant="body1">Dosagem: {medication.dosagem}</Typography> 
          <Typography variant="body1">{medication.medida}</Typography>
         </div>
-        
+        <Typography variant="body1">Preço: {medication.preco}</Typography>
         <Typography variant="body1">Tipo: {medication.tipo}</Typography>
       </CardContent>
       

@@ -8,7 +8,6 @@ export const LoginStyled = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin-bottom: 8px;
         font-family: 'Inter', sans-serif;
         font-weight: 400;
         font-size: 20px;
@@ -23,13 +22,12 @@ export const LoginStyled = styled.div`
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         label{
             font-weight: 600;
             font-size: 16px;
-            line-height: 19px;
         }
 
         input{
@@ -62,7 +60,7 @@ export const LoginStyled = styled.div`
             font-size: 16px;
             line-height: 19px;
             border: none;
-            margin-top: 8px;
+            margin-top: 15px;
         }
 `
 
@@ -72,7 +70,7 @@ export const HeadStyled = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 8px;
+        margin-bottom: 30px;
         
         img{
             width: 40%;

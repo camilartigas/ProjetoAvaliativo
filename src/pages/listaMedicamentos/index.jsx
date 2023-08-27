@@ -57,7 +57,7 @@ function ListaMedicamentos() {
             }}
           />
         </Box>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '10px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '10px', justifyContent: 'center', alignItems: 'center'}}>
           {searchTerm.length > 0 && filteredMedications.length === 0 && (
             <Typography variant="body1">Nenhum medicamento encontrado.</Typography>
           )}
