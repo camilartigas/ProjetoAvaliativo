@@ -77,6 +77,7 @@ function CadastroMedicamentos() {
             // Limpa os campos após o cadastro
             event.target.nomeMedicamento.value = '';
             event.target.nomeLaboratorio.value = '';
+            event.target.ean.value = '';
             event.target.dosagem.value = '';
             event.target.medida.value = 'mg'; // Define um valor padrão para a medida
             event.target.preco.value = 'R$ ';
