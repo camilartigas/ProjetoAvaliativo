@@ -192,7 +192,7 @@ function CadastroMedicamentos() {
                             name="descricao"
                             multiline
                             rows={5}
-                            defaultValue="Default Value"
+                            defaultValue=""
                         />
                     </Box>
 
