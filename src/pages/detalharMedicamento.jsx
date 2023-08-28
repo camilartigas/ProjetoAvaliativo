@@ -18,7 +18,7 @@ function DetalharMedicamento() {
   if (!medication) {
     return (
       <div>
-        <h1>Medicamento não encontrado.teste</h1>
+        <h1>Medicamento não encontrado.</h1>
       </div>
     );
   }
