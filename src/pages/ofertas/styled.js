@@ -6,6 +6,7 @@ export const Container = styled('div')`
   flex-direction: column;
   align-items: center;
   padding: 16px;
+
 `;
 
 export const StyledImage = styled('img')`
