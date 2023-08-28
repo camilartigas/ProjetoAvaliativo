@@ -15,4 +15,7 @@ form {
     width: 100%;
 }
 
+h2 {
+    font-size: 1.5rem;
+    margin-left: 1rem;
 `

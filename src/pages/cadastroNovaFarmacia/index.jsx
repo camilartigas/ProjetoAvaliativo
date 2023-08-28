@@ -52,7 +52,7 @@ function CadastroNovaFarmacia() {
             existingNovaFarmacia.push(novaFarmacia);
             localStorage.setItem('novaFarmacia', JSON.stringify(existingNovaFarmacia));
 
-             // Limpa os campos após o cadastro
+            // Limpa os campos após o cadastro
             event.target.reset();
 
 
@@ -74,7 +74,7 @@ function CadastroNovaFarmacia() {
         try {
             const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
             const data = await response.json();
-    
+
             if (!data.erro) {
                 setAddressData({
                     logradouro: data.logradouro,
@@ -85,14 +85,14 @@ function CadastroNovaFarmacia() {
             }
         } catch (error) {
             console.error(error);
-    }
-};
+        }
+    };
 
-useEffect(() => {
-    if (addressData.logradouro === '' && cep !== '') {
-        fetchAddressData(cep);
-    }
-}, [cep, addressData.logradouro]);
+    useEffect(() => {
+        if (addressData.logradouro === '' && cep !== '') {
+            fetchAddressData(cep);
+        }
+    }, [cep, addressData.logradouro]);
 
 
 
@@ -103,7 +103,7 @@ useEffect(() => {
                 <h1>Cadastro Nova Farmácia</h1>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <Box sx={{ '& .MuiTextField-root': { m: 1, width: '54ch' } }} noValidate autoComplete="off">
+                        <Box sx={{ '& .MuiTextField-root': { m: 1, width: '50ch' } }} noValidate autoComplete="off">
                             <div>
                                 <TextField
                                     required
@@ -111,7 +111,7 @@ useEffect(() => {
                                     label="Razão Social"
                                     type="text"
                                     name="razaoSocial"
-                                   
+
                                 />
                                 <TextField
                                     required
@@ -129,22 +129,22 @@ useEffect(() => {
                                     label="Nome Fantasia"
                                     type="text"
                                     name="nomeFantasia"
-                                    />
-                                    <TextField
+                                />
+                                <TextField
                                     required
                                     id="outlined-required"
                                     label="E-mail"
                                     type="email"
                                     name="email"
-                                    />
-                                    <TextField
+                                />
+                                <TextField
                                     id="outlined-number"
                                     label="Telefone"
                                     type="number"
                                     name="telefone"
                                 />
                                 <TextField
-                                required
+                                    required
                                     id="outlined-number"
                                     label="Celular"
                                     type="number"
@@ -152,8 +152,7 @@ useEffect(() => {
                                 />
                             </div>
                         </Box>
-
-                        <Box sx={{ '& .MuiTextField-root': { m: 1, width: '26ch' } }} noValidate autoComplete="off">
+                        <Box sx={{ '& .MuiTextField-root': { m: 1, width: '50ch' } }} noValidate autoComplete="off">
                             <div>
                                 <h2>Endereço</h2>
                                 <TextField
@@ -165,15 +164,15 @@ useEffect(() => {
                                     onChange={(event) => setCep(event.target.value)}
                                 />
                                 <TextField
-                                required
-                                id="outlined-multiline-static"
-                                label="Logradouro"
-                                type="text"
-                                name="logradouro"
-                                value={addressData.logradouro}
-    onChange={(event) => setAddressData({ ...addressData, logradouro: event.target.value })}
+                                    required
+                                    id="outlined-multiline-static"
+                                    label="Logradouro"
+                                    type="text"
+                                    name="logradouro"
+                                    value={addressData.logradouro}
+                                    onChange={(event) => setAddressData({ ...addressData, logradouro: event.target.value })}
 
-                            />
+                                />
                                 <TextField
                                     required
                                     id="outlined-helperText"
@@ -182,43 +181,47 @@ useEffect(() => {
                                     name="numero"
                                 />
                                 <TextField
-                                required
-                                id="outlined-multiline-static"
-                                label="Bairro"
-                                type="text"
-                                name="bairro"
-                                value={addressData.bairro}
-    onChange={(event) => setAddressData({ ...addressData, bairro: event.target.value })}
+                                    required
+                                    id="outlined-multiline-static"
+                                    label="Bairro"
+                                    type="text"
+                                    name="bairro"
+                                    value={addressData.bairro}
+                                    onChange={(event) => setAddressData({ ...addressData, bairro: event.target.value })}
 
-                            />
-                            <TextField
-                                required
-                                id="outlined-multiline-static"
-                                label="Cidade"
-                                type="text"
-                                name="cidade"
-                                value={addressData.cidade}
-    onChange={(event) => setAddressData({ ...addressData, cidade: event.target.value })}
+                                />
+                                <TextField
+                                    required
+                                    id="outlined-multiline-static"
+                                    label="Cidade"
+                                    type="text"
+                                    name="cidade"
+                                    value={addressData.cidade}
+                                    onChange={(event) => setAddressData({ ...addressData, cidade: event.target.value })}
 
-                            />
-                            <TextField
-                                required
-                                id="outlined-multiline-static"
-                                label="Estado"
-                                type="text"
-                                name="estado"
-                                value={addressData.estado}
-    onChange={(event) => setAddressData({ ...addressData, estado: event.target.value })}
+                                />
+                                <TextField
+                                    required
+                                    id="outlined-multiline-static"
+                                    label="Estado"
+                                    type="text"
+                                    name="estado"
+                                    value={addressData.estado}
+                                    onChange={(event) => setAddressData({ ...addressData, estado: event.target.value })}
 
-                            />
-                            <TextField
-                                id="outlined-multiline-static"
-                                label="Complemento"
-                                type="text"
-                                name="complemento"
-                            />
-                            <h3>Geolocalização</h3>
-                            <TextField
+                                />
+                                
+                                <Box sx={{ '& .MuiTextField-root': { m: 1, width: '154ch' } }} noValidate autoComplete="off">
+                                    <TextField
+                                    id="outlined-multiline-static"
+                                    label="Complemento"
+                                    type="text"
+                                    name="complemento"
+                                />
+                                </Box>
+                                <h2>Geolocalização</h2>
+                                <Box sx={{ '& .MuiTextField-root': { m: 1, width: '76ch' } }} noValidate autoComplete="off">
+                                     <TextField
                                     required
                                     id="outlined-helperText"
                                     label="Latitude"
@@ -232,7 +235,7 @@ useEffect(() => {
                                     type="text"
                                     name="longitude"
                                 />
-                               
+                                </Box>
                             </div>
                         </Box>
                     </div>
@@ -243,7 +246,7 @@ useEffect(() => {
                 </form>
                 {feedbackMessage && <p>{feedbackMessage}</p>}
             </CadastroFarmaciaStyled>
-            
+
         </>
 
     )
