@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import logop from "../../img/logop.png";
 import { Container, StyledImage, Title } from './styled';
 
-
 function ListaMedicamentos() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredMedications, setFilteredMedications] = useState([]);
@@ -15,7 +14,6 @@ function ListaMedicamentos() {
   const handleSearchChange = (event) => {
     const newSearchTerm = event.target.value;
     setSearchTerm(newSearchTerm);
-
 
     const filtered = existingMedications.filter(
       (medication) =>
@@ -31,10 +29,10 @@ function ListaMedicamentos() {
     <>
       <Header />
       <div>
-      <Container>
-        <StyledImage src={logop} alt="logo DEVinPharmacy" />
-        <Title variant="h5">Lista de medicamentos</Title>
-      </Container>
+        <Container>
+          <StyledImage src={logop} alt="logo DEVinPharmacy" />
+          <Title variant="h5">Lista de medicamentos</Title>
+        </Container>
         <Box sx={{ p: 3 }}>
           <TextField
             label="Buscar medicamento"
@@ -61,24 +59,24 @@ function ListaMedicamentos() {
           {searchTerm.length > 0 && filteredMedications.length === 0 && (
             <Typography variant="body1">Nenhum medicamento encontrado.</Typography>
           )}
-           {searchTerm.length === 0 && existingMedications.length === 0 && (
+          {searchTerm.length === 0 && existingMedications.length === 0 && (
             <Typography variant="body1">Nenhum medicamento cadastrado.</Typography>
           )}
           {searchTerm.length === 0 &&
             existingMedications.length > 0 &&
             existingMedications.map((medication) => (
-              <MedicamentoCard key={medication.nomeMedicamento} medication={medication}
-              />
+              <MedicamentoCard key={medication.ean} medication={medication} />
             ))}
           {searchTerm.length > 0 &&
             filteredMedications.length > 0 &&
             filteredMedications.map((medication) => (
-              <MedicamentoCard key={medication.nomeMedicamento} medication={medication} />
-              ))}
-          </div>
+              <MedicamentoCard key={medication.ean} medication={medication} />
+            ))}
         </div>
-      </>
-    );
-  }
-  
-  export { ListaMedicamentos };
+      </div>
+    </>
+  );
+}
+
+export { ListaMedicamentos };
+

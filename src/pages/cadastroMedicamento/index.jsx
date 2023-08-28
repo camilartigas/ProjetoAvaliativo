@@ -5,8 +5,6 @@ import Button from '@mui/material/Button';
 import { CadastroMedicamentoStyled } from "./styled";
 import React, { useState } from 'react';
 
-
-
 const types = [
     {
         value: 'medicamento comum',
@@ -16,7 +14,6 @@ const types = [
         value: 'medicamento controlado',
         label: 'Medicamento controlado',
     },
-
 ];
 
 const measure = [
@@ -47,8 +44,8 @@ const measure = [
 ];
 
 function CadastroMedicamentos() {
-
     const [feedbackMessage, setFeedbackMessage] = useState('');
+    const [ean, setEan] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -63,6 +60,7 @@ function CadastroMedicamentos() {
             const descricao = event.target.descricao.value;
 
             const medication = {
+                id: ean,
                 nomeMedicamento,
                 nomeLaboratorio,
                 dosagem,
@@ -85,7 +83,6 @@ function CadastroMedicamentos() {
             event.target.tipo.value = 'medicamento comum';
             event.target.descricao.value = '';
 
-
             setFeedbackMessage('Medicamento cadastrado com sucesso.');
         } catch (error) {
             console.error(error);
@@ -100,98 +97,104 @@ function CadastroMedicamentos() {
                 <h1>Cadastro de Medicamentos</h1>
 
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <Box sx={{ '& .MuiTextField-root': { m: 1, width: '54ch' } }} noValidate autoComplete="off">
-                            <div>
-                                <TextField
-                                    required
-                                    id="outlined-required"
-                                    label="Nome do medicamento"
-                                    type="text"
-                                    name="nomeMedicamento"
-                                   
-                                />
-                                <TextField
-                                    required
-                                    id="outlined-required"
-                                    label="Nome do laboratório"
-                                    type="text"
-                                    name="nomeLaboratorio"
-                                    />
-                            </div>
-                        </Box>
-
-                        <Box sx={{ '& .MuiTextField-root': { m: 1, width: '26ch' } }} noValidate autoComplete="off">
-                            <div>
-                                <TextField
-                                    required
-                                    id="outlined-number"
-                                    label="Dosagem"
-                                    type="number"
-                                    name="dosagem"
-                                    InputLabelProps={{
-                                        shrink: true,
-                                    }}
-                                />
-                                <TextField
-                                    required
-                                    id="outlined-select-measure-native"
-                                    select
-                                    label="Selecione"
-                                    name="medida"
-                                    defaultValue="mg"
-                                    SelectProps={{
-                                        native: true,
-                                    }}>
-                                    {measure.map((option) => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
-                                    ))}
-                                </TextField>
-                                <TextField
-                                    required
-                                    id="outlined-helperText"
-                                    label="Preço"
-                                    name="preco"
-                                   defaultValue="R$ "
-                                />
-                                <TextField
-                                    required
-                                    id="outlined-select-types-native"
-                                    select
-                                    label="Selecione"
-                                    name="tipo"
-                                    defaultValue="mg"
-                                    SelectProps={{
-                                        native: true,
-                                    }}>
-                                    {types.map((option) => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
-                                    ))}
-                                </TextField>
-                            </div>
-                        </Box>
-
-                        <Box
-                            sx={{
-                                '& .MuiTextField-root': { m: 1, width: '110ch' },
-                            }}
-                            noValidate
-                            autoComplete="off"
-                        >
+                    <Box sx={{ '& .MuiTextField-root': { m: 1, width: '35.4ch' } }} noValidate autoComplete="off">
+                        <div>
                             <TextField
-                                id="outlined-multiline-static"
-                                label="Descrição do medicamento"
-                                name="descricao"
-                                multiline
-                                rows={5}
-                               defaultValue="Default Value"
+                                required
+                                id="outlined-required"
+                                label="Nome do medicamento"
+                                type="text"
+                                name="nomeMedicamento"
                             />
-                        </Box>
-                    </div>
+                            <TextField
+                                required
+                                id="outlined-required"
+                                label="Nome do laboratório"
+                                type="text"
+                                name="nomeLaboratorio"
+                            />
+                            <TextField
+                                required
+                                id="outlined-required"
+                                label="Código de barras"
+                                type="number"
+                                name="ean"
+                                value={ean}
+                                onChange={(event) => setEan(event.target.value)}
+                            />
+                        </div>
+                    </Box>
+
+                    <Box sx={{ '& .MuiTextField-root': { m: 1, width: '26ch' } }} noValidate autoComplete="off">
+                        <div>
+                            <TextField
+                                required
+                                id="outlined-number"
+                                label="Dosagem"
+                                type="number"
+                                name="dosagem"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <TextField
+                                required
+                                id="outlined-select-measure-native"
+                                select
+                                label="Selecione"
+                                name="medida"
+                                defaultValue="mg"
+                                SelectProps={{
+                                    native: true,
+                                }}>
+                                {measure.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </TextField>
+                            <TextField
+                                required
+                                id="outlined-helperText"
+                                label="Preço"
+                                name="preco"
+                                defaultValue="R$ "
+                            />
+                            <TextField
+                                required
+                                id="outlined-select-types-native"
+                                select
+                                label="Selecione"
+                                name="tipo"
+                                defaultValue="mg"
+                                SelectProps={{
+                                    native: true,
+                                }}>
+                                {types.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </TextField>
+                        </div>
+                    </Box>
+
+                    <Box
+                        sx={{
+                            '& .MuiTextField-root': { m: 1, width: '110ch' },
+                        }}
+                        noValidate
+                        autoComplete="off"
+                    >
+                        <TextField
+                            id="outlined-multiline-static"
+                            label="Descrição do medicamento"
+                            name="descricao"
+                            multiline
+                            rows={5}
+                            defaultValue="Default Value"
+                        />
+                    </Box>
 
                     <Button type="submit" variant="contained" size="large">
                         Salvar
@@ -199,12 +202,8 @@ function CadastroMedicamentos() {
                 </form>
 
                 {feedbackMessage && <p>{feedbackMessage}</p>}
-
-
             </CadastroMedicamentoStyled>
-            
         </>
-
     )
 }
 
