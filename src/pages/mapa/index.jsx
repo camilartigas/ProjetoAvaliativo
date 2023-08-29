@@ -2,6 +2,7 @@ import { Header } from '../../components/header';
 import React, { useState, useEffect } from 'react';
 import "./style.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { icon } from "leaflet";
 
 function Mapa(){
 
