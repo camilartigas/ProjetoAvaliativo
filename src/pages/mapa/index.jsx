@@ -4,6 +4,12 @@ import "./style.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 function Mapa(){
+
+  const customIcon = new icon({
+    iconUrl:"https://cdn-icons-png.flaticon.com/128/252/252106.png",
+    iconSize:[38,38]
+  })
+
     const [farmacias, setFarmacias] = useState([]);
 
     useEffect(() => {
@@ -18,7 +24,7 @@ function Mapa(){
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
             {farmacias.map((farmacia, index) => (
-        <Marker key={index} position={[farmacia.latitude, farmacia.longitude]}>
+        <Marker key={index} position={[farmacia.latitude, farmacia.longitude]} icon={customIcon}>
           <Popup>
             <div>
             <h2>{farmacia.razaoSocial}</h2>
