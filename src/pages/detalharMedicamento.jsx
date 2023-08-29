@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Header } from '../components/header';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 function DetalharMedicamento() {
   const { id } = useParams();
@@ -26,15 +30,35 @@ function DetalharMedicamento() {
   return (
     <div>
       <Header />
-      <h1>Detalhes do Medicamento</h1>
-      <p>Nome: {medication.nomeMedicamento}</p>
-      <p>Laboratório: {medication.nomeLaboratorio}</p>
-      <p>Dosagem: {medication.dosagem} {medication.medida}</p>
-      <p>Preço: {medication.preco}</p>
-      <p>Tipo: {medication.tipo}</p>
-      <p>Descrição: {medication.descricao}</p>
+      <Box display="flex" justifyContent="center" alignItems="center" height="50vh">
+        <Card variant="outlined" style={{ width: '50%', borderWidth: '2px', borderColor: '#00153c', borderRadius: '15px' }}>
+          <CardContent style={{ textAlign: 'center' }}>
+            <Typography variant="h5" component="div">
+              Detalhes do Medicamento
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              Nome: {medication.nomeMedicamento}
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              Laboratório: {medication.nomeLaboratorio}
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              Dosagem: {medication.dosagem} {medication.medida}
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              Preço: {medication.preco}
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              Tipo: {medication.tipo}
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              Descrição: {medication.descricao}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Box>
     </div>
   );
 }
 
-export { DetalharMedicamento} 
+export { DetalharMedicamento };
