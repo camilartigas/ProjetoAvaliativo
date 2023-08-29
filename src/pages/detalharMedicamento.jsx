@@ -31,7 +31,7 @@ function DetalharMedicamento() {
     <div>
       <Header />
       <Box display="flex" justifyContent="center" alignItems="center" height="50vh">
-        <Card variant="outlined" style={{ width: '50%', borderWidth: '2px', borderColor: '#00153c', borderRadius: '15px' }}>
+        <Card variant="outlined" style={{ width: '50%', borderWidth: '2px', borderColor: '#00153c', borderRadius: '15px', marginTop: '30px' }}>
           <CardContent style={{ textAlign: 'center' }}>
             <Typography variant="h5" component="div">
               Detalhes do Medicamento
