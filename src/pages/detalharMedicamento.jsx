@@ -30,6 +30,7 @@ function DetalharMedicamento() {
   return (
     <div>
       <Header />
+
       <Box display="flex" justifyContent="center" alignItems="center" height="calc(100vh - 64px)">
         <Card variant="outlined" style={{ width: '50%', borderWidth: '2px', borderColor: '#00153c', borderRadius: '15px', padding: '20px' }}>
           <CardContent>

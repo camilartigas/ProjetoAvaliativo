@@ -28,11 +28,13 @@ function ListaMedicamentos() {
   return (
     <>
       <Header />
+
       <div>
         <Container>
           <StyledImage src={logop} alt="logo DEVinPharmacy" />
           <Title variant="h5">Lista de medicamentos</Title>
         </Container>
+
         <Box sx={{ p: 3 }}>
           <TextField
             label="Buscar medicamento"
@@ -55,6 +57,7 @@ function ListaMedicamentos() {
             }}
           />
         </Box>
+        
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '10px', justifyContent: 'center', alignItems: 'center'}}>
           {searchTerm.length > 0 && filteredMedications.length === 0 && (
             <Typography variant="body1">Nenhum medicamento encontrado.</Typography>

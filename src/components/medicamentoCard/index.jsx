@@ -1,21 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/system";
+import { StyledCard } from './styled';
 
-const StyledCard = styled(Card)`
-  border: 1px solid #00153c;
-  border-radius: 15px;
-  transition: transform 0.2s;
-  cursor: pointer;
-
-  &:hover {
-    transform: translateY(-4px);
-    borderColor: '#046d8b';
-  }
-`;
 
 function MedicamentoCard({ medication }) {
   const navigate = useNavigate();

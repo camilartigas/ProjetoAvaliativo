@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-
 function validaSenha(password) {
     // Verifica se a senha tem pelo menos 8 caracteres
     if (password.length < 8) {
@@ -51,7 +50,6 @@ function Login() {
                     <span>Seja bem vindo! Faça seu login</span>
                 </HeadStyled>
 
-
                 <form onSubmit={validaLogin}>
                     <div>
                         <input 
@@ -82,12 +80,6 @@ function Login() {
 
                 </form>
             </LoginStyled>
-           
-
-
-
-
-        
         </>
 
     )

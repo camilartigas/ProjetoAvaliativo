@@ -95,12 +95,12 @@ function CadastroNovaFarmacia() {
     }, [cep, addressData.logradouro]);
 
 
-
     return (
         <>
             <Header />
             <CadastroFarmaciaStyled>
                 <h1>Cadastro Nova Farmácia</h1>
+
                 <form onSubmit={handleSubmit}>
                     <div>
                         <Box sx={{ '& .MuiTextField-root': { m: 1, width: '50ch' } }} noValidate autoComplete="off">
@@ -153,6 +153,7 @@ function CadastroNovaFarmacia() {
                             </div>
                         </Box>
                         <Box sx={{ '& .MuiTextField-root': { m: 1, width: '50ch' } }} noValidate autoComplete="off">
+
                             <div>
                                 <h2>Endereço</h2>
                                 <TextField
@@ -171,7 +172,6 @@ function CadastroNovaFarmacia() {
                                     name="logradouro"
                                     value={addressData.logradouro}
                                     onChange={(event) => setAddressData({ ...addressData, logradouro: event.target.value })}
-
                                 />
                                 <TextField
                                     required
@@ -188,7 +188,6 @@ function CadastroNovaFarmacia() {
                                     name="bairro"
                                     value={addressData.bairro}
                                     onChange={(event) => setAddressData({ ...addressData, bairro: event.target.value })}
-
                                 />
                                 <TextField
                                     required
@@ -198,7 +197,6 @@ function CadastroNovaFarmacia() {
                                     name="cidade"
                                     value={addressData.cidade}
                                     onChange={(event) => setAddressData({ ...addressData, cidade: event.target.value })}
-
                                 />
                                 <TextField
                                     required
@@ -208,7 +206,6 @@ function CadastroNovaFarmacia() {
                                     name="estado"
                                     value={addressData.estado}
                                     onChange={(event) => setAddressData({ ...addressData, estado: event.target.value })}
-
                                 />
                                 
                                 <Box sx={{ '& .MuiTextField-root': { m: 1, width: '154ch' } }} noValidate autoComplete="off">
