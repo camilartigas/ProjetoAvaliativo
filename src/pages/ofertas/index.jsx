@@ -76,7 +76,7 @@ function Ofertas() {
           }}
         />
       </Box>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '16px' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px' }}>
         {filteredMedications.map((medication) => (
           <Card
             key={medication.nomeMedicamento}
