@@ -30,10 +30,10 @@ function DetalharMedicamento() {
   return (
     <div>
       <Header />
-      <Box display="flex" justifyContent="center" alignItems="center" height="50vh">
-        <Card variant="outlined" style={{ width: '50%', borderWidth: '2px', borderColor: '#00153c', borderRadius: '15px', marginTop: '30px' }}>
-          <CardContent style={{ textAlign: 'center' }}>
-            <Typography variant="h5" component="div">
+      <Box display="flex" justifyContent="center" alignItems="center" height="calc(100vh - 64px)">
+        <Card variant="outlined" style={{ width: '50%', borderWidth: '2px', borderColor: '#00153c', borderRadius: '15px', padding: '20px' }}>
+          <CardContent>
+            <Typography variant="h5" component="div" align="center">
               Detalhes do Medicamento
             </Typography>
             <Typography variant="body1" gutterBottom>
@@ -62,3 +62,4 @@ function DetalharMedicamento() {
 }
 
 export { DetalharMedicamento };
+
